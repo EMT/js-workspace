@@ -1,0 +1,24 @@
+FROM alpine:latest
+
+RUN apk --update add --no-cache --virtual .gyp \
+        python \
+        make \
+        g++ \
+        git \
+        nodejs
+
+RUN addgroup -S workspace
+RUN adduser -S workspace -G workspace
+USER workspace
+
+RUN mkdir ~/.npm-global && \
+    npm config set prefix '~/.npm-global' && \
+    touch ~/.profile && \
+    echo "export PATH=~/.npm-global/bin:$PATH" > ~/.profile && \
+    source ~/.profile
+
+RUN npm install -g node-sass
+
+WORKDIR /workspace
+
+CMD [ "/bin/sh" ]
