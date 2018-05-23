@@ -18,8 +18,6 @@ RUN mkdir ~/.npm-global && \
     echo "export PATH=~/.npm-global/bin:$PATH" > ~/.profile && \
     source ~/.profile
 
-RUN npm install -g node-sass
-
 WORKDIR /workspace
 
 CMD [ "/bin/sh" ]
