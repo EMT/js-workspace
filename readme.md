@@ -7,4 +7,3 @@ Alpine based container image for developing javascript applications. Includes:
 
 - nodejs
 - npm
-- node-sass
