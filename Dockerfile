@@ -5,7 +5,8 @@ RUN apk --update add --no-cache --virtual .gyp \
         make \
         g++ \
         git \
-        nodejs
+        nodejs \
+        nodejs-npm
 
 RUN addgroup -S workspace
 RUN adduser -S workspace -G workspace
